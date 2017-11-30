@@ -8,242 +8,287 @@
 		<title>Artūrs Reiljans</title>
 
 		<style type='text/css'>
-			* {
-				box-sizing: border-box;
-			}
-			:focus {
-				outline: 0;
-			}
 
-			html, body, h1, a, ul, li, #main {
+			/** RESET **/
+
+			html,
+			html > body,
+			html > body > main > figure,
+			html > body > main > h1 {
 				margin: 0;
 				padding: 0;
-				border: 0;
-				outline: 0;
+				clear: both;
 			}
-			html, body, #map-container, #map, #main-container, #main-container table {
+
+			html > body > main > ul,
+			html > body > main > ol {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			/** LAYOUT **/
+
+			* {
+				box-sizing: border-box;
+				font-size: 1em;
+			}
+
+			html {
+				font-size: 21px;
+				font-size: calc(20px + 0.3vmax);
+			}
+
+			:root {
+				--horizontal-space: .5rem;
+				--vertical-space: .5rem;
+				--spacing: 0 var(--horizontal-space) var(--vertical-space) var(--horizontal-space);
+			}
+
+			html,
+			html > body,
+			html > body > aside,
+			html > body > aside > #map {
 				width: 100%;
 				height: 100%;
 			}
-			body {
-				font-family: arial;
-				font-size: 18px;
-			}
-			#map-container, #main-container {
-				position: absolute;
-				left: 0;
-				top: 0;
-			}
-			#map-container {
-				z-index: 10;
-			}
 
-			#main-container {
-				z-index: 20;
-				background: rgba(0, 0, 0, .85);
-				overflow: auto;
-			}
-
-			#main {
-				vertical-align: middle;
+			html > body {
+				display: table;
 				text-align: center;
-				padding: 1em;
-				color: #fff;
 			}
 
-			#main a {
-				color: #fff;
-				-webkit-transition: all .2s linear;
-				transition: all .2s linear;
+			html > body > aside {
+				position: fixed;
+				bottom: 0;
+			}
+
+			html > body > main {
+				position: relative;
+				padding: var(--horizontal-space);
+				vertical-align: middle;
+				display: table-cell;
+				text-align: center;
+			}
+
+			html > body > main > ul > li,
+			html > body > main > ol > li,
+			html > body > main > address,
+			html > body > main > h1 span {
+				padding: var(--spacing);
+			}
+
+			html > body > main > h1 > del {
+				font-size: 0;
+			}
+
+			html > body > main > article {
+				clear: both;
+				padding: .5rem 0 1.1rem 0;
+			}
+
+			html > body > main > ol,
+			html > body > main > address {
+				font-size: .75rem;
+			}
+
+			html > body > main > ol > li {
+				display: inline-block;
+			}
+
+			html > body > main > figure {
+				font-size: 0;
+				margin-bottom: var(--vertical-spacing);
+			}
+
+			@media only screen and (min-width: 600px) {
+
+				html > body > main > h1,
+				html > body > main > ul,
+				html > body > main > ol,
+				html > body > main > address,
+				html > body > main > figure {
+					width: 50%;
+					float: right;
+				}
+
+				html > body > main > h1,
+				html > body > main > ul,
+				html > body > main > figure {
+					text-align: left;
+				}
+
+				html > body > main > ol,
+				html > body > main > address {
+						text-align: right;
+				}
+
+				html > body > main > ol {
+					max-width: 16em;
+				}
+
+				html > body > main > h1 > small {
+					position: relative;
+				}
+
+				html > body > main > h1 > small > span {
+					position: absolute;
+					right: 0;
+				}
+			}
+
+			/** STYLE **/
+
+			html {
+				background: #000;
+				font-family: sans-serif;
+			}
+
+			:focus {
+				outline: .2em inset rgba(80, 80, 80, .5);
+				outline-offset: .2em;
+			}
+
+			:root {
+				--text-color: #ffffff;
+				--accent-color: #FF8000;
+			}
+
+			html > body > aside {
+				opacity: .15;
+			}
+
+			html > body > main {
+				color: var(--text-color);
+			}
+
+			html > body > main a {
+				color: var(--text-color);
+				-webkit-transition: color .2s linear;
+				transition: color .2s linear;
 				text-decoration: none;
 				border-bottom-style: solid;
 				border-bottom-width: 1px;
-			}
-			#main a:hover {
-				color: #FF8000;
+				border-bottom-color: inherit;
 			}
 
-			#main img {
-				width: 8em;
-				height: 8em;
-				border: .27em solid #FF8000;
-				margin: 0 0 0 24em;
-				border-radius: 50%;
-				-webkit-border-radius: 50%;
-				-moz-border-radius: 50%;
+			html > body > main a:hover {
+				color: var(--accent-color);
+				border-color: var(--accent-color);
 			}
 
-			h1, p {
+			html > body > main > h1,
+			html > body > main > article {
 				font-family: Georgia, 'Times New Roman';
 				font-weight: normal;
 				font-style: italic;
 			}
 
-			h1 {
-				white-space: nowrap;
-				margin: 0 0 0 50%;
-				font-size: 375%;
-				padding: 0 0 .3em .2em;
+			html > body > main > h1 {
+				font-size: 3em;
 				text-shadow: #000 0 0 .1em;
-				text-align: left;
-				position: relative;
 			}
 
-			h1 small {
-				font-size: 100%;
-				position: relative;
-				white-space: pre;
+			html > body > main > article {
+				color: var(--accent-color);
 			}
 
-			h1 small span {
-				position: absolute;
-				right: 0;
+			html > body > main code {
+				font-family: monospace;
 			}
 
-			p {
-				color: #FF8000;
-				margin: 0 auto;
-				padding: 0 0 1.05em;
-				max-width: 30em;
-				font-size: 125%;
+			html > body > main > figure > img {
+				width: 6rem;
+				height: 6rem;
+				border: 5px solid var(--accent-color);
+				border-radius: 50%;
+				-moz-border-radius: 50%;
 			}
 
-			ul, dl {
-				width: 50%;
-				list-style: none;
-				float: right;
-				margin: 0;
-				padding: 0;
-			}
-			dl {
-				text-align: right;
-				padding-right: .75em;
-			}
-			ul {
-				text-align: left;
-				padding-left: .75em;
+			html > body > main > address {
+				font-style: normal;
 			}
 
-			ul li {
-				padding: 0 0 .4em 0;
-				font-size: 140%;
+			html > body > main > address a {
+				margin-left: .1em;
 			}
 
-			dt, dd {
-				display: inline;
-				margin: 0;
-				padding: 0;
-			}
-
-			dd {
-				padding-left: .35em;
-			}
-
-			dd:after {
-				content: '\A';
-				white-space: pre;
-				height: .5em;
-				display: block;
-			}
-
-			dt:after {
-				content: ':';
-			}
-
-			.country-code::before {
+			html > body > main > address .country-code::before {
 				content: '('
 			}
-			.country-code::after{
+
+			html > body > main > address .country-code::after{
 				content: ') '
 			}
-			.part::before {
+
+			html > body > main > address .part::before {
 				content: '-'
 			}
 
-			@media only screen and (max-width: 700px) {
-				body {
-					font-size: 15px;
-				}
-				#main img {
-					margin: 0;
-				}
+			html > body > main a[href^='mailto:'],
+			html > body > main a[href^='tel:'] {
+				position: relative;
 			}
-			@media only screen and (max-width: 600px) {
-				#main {
-					vertical-align: top;
-				}
-				h1 {
-					text-align: center;
-					white-space: normal;
-					margin: 0;
-				}
-				h1 small, h1 small span {
-					position: static;
-					white-space: normal;
-				}
-				dl, ul {
-					float: none;
-					width: 100%;
-					padding-left: 0;
-					padding-right: 0;
-				}
-				ul {
-					padding-bottom: 1em;
-				}
-				li, dd, dt, dl {
-					text-align: center;
-					padding-left: 0;
-					padding-right: 0;
-				}
+
+			html > body > main a[href^='mailto:']::before,
+			html > body > main a[href^='tel:']::before {
+				position: absolute;
+				left: -1.5em;
+			}
+
+			html > body > main a[href^='mailto:']::before {
+				content: '✉';
+			}
+
+			html > body > main a[href^='tel:']::before {
+				content: '☎';
 			}
 		</style>
 	</head>
 	<body>
-		<div id='main-container'>
-			<table>
-				<tr>
-					<td id='main' class='h-card vcard'>
 
-						<img src="./photo.jpg" alt="Artūrs Reiljans" title="Artūrs Reiljans" class="u-photo photo" />
-
-						<h1 class='p-name fn'>
-							<small><span class="p-given-name given-name">Artūrs </span></small>
-							<span class="p-family-name family-name">Reiljans</span>
-						</h1>
-
-						<p class="p-note note">I build better Web and detect cities by window frames.</p>
-
-						<ul>
-							<li><a class="u-url url" href='http://zurbu.net'>Zurbu</a></li>
-							<li><a class="u-url url" href='http://forum.myriga.info'>Беседы о Риге<br />Sarunas par Rīgu</a></li>
-							<li><a class="u-url url" href='http://letters.ernt.lv'>Letters &amp; ligatures</a></li>
-							<li><a class="u-url url" href='http://www.1201.lv'>1201</a></li>
-						</ul>
-
-						<dl>
-							<dt>LinkedIn</dt>
-								<dd><a class="u-url url" rel="me" href='https://www.linkedin.com/in/artursreiljans/'>artursreiljans</a></dd>
-							<dt>Twitter</dt>
-								<dd><a class="u-url url" rel="me" href='https://twitter.com/artursreiljans'>@artursreiljans</a></dd>
-							<dt>Last.fm</dt>
-								<dd><a class="u-url url" rel="me" href='https://www.last.fm/user/ernt'>ernt</a></dd>
-							<dt>e-mail</dt>
-								<dd><a href='mailto:ernt@ernt.lv' class="u-email email">ernt@ernt.lv</a></dd>
-							<dt>phone</dt>
-								<dd class='p-tel tel'><a href='tel:+37129690196'><span class='country-code'>+371</span>2<span class='part'>96</span><span class='part'>901</span><span class='part'>96</span></a></dd>
-						</dl>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-		<div id='map-container'>
+		<aside>
 			<div id='map'></div>
-		</div>
+		</aside>
 
-		<!--[if lte IE 8]>
-			<div id="curtain"></div>
-		<![endif]-->
+		<main class='h-card vcard'>
+
+			<figure>
+				<img src="./photo.jpg" alt="Artūrs Reiljans" title="Artūrs Reiljans" class="u-photo photo" />
+			</figure>
+
+			<h1 class='p-name fn'>
+				<small><span class="p-given-name given-name">Artūrs</span></small><del> </del><span class="p-family-name family-name">Reiljans</span>
+			</h1>
+
+			<article class="p-note note">
+				<code>I build better Web</code> & detect cities by window frames.
+			</article>
+
+			<ul>
+				<li><a tabindex="1" class="u-url url" href='http://zurbu.net'>Zurbu</a></li>
+				<li><a tabindex="1" class="u-url url" href='http://forum.myriga.info'>Беседы о Риге<br>Sarunas par Rīgu</a></li>
+				<li><a tabindex="1" class="u-url url" href='http://letters.ernt.lv'>Letters &amp; ligatures</a></li>
+				<li><a tabindex="1" class="u-url url" href='http://www.1201.lv'>1201</a></li>
+			</ul>
+
+			<ol>
+				<li><code><a tabindex="1" class="u-url url" rel="me" href='https://www.linkedin.com/in/artursreiljans/'>LinkedIn</a></code></li><!--
+		 --><li><a tabindex="1" class="u-url url" rel="me" href='https://twitter.com/artursreiljans'>Twitter</a></li><!--
+		 --><li><a tabindex="1" class="u-url url" rel="me" href='https://www.instagram.com/artursreiljans/'>Instagram</a></li><!--
+		 --><li><a tabindex="1" class="u-url url" rel="me" href='https://www.facebook.com/arturs.reiljans'>Facebook</a></li><!--
+		 --><li><a tabindex="1" class="u-url url" rel="me" href='https://www.last.fm/user/ernt'>Last.fm</a></li><!--
+	 --></ol>
+
+			<address>
+				<a tabindex="1" href='mailto:ernt@ernt.lv' class="u-email email">ernt@ernt.lv</a>
+			</address>
+
+			<address>
+				<a tabindex="1" href='tel:+37129690196' class='p-tel tel'><span class='country-code'>+371</span>2<span class='part'>96</span><span class='part'>901</span><span class='part'>96</span></a>
+			</address>
+
+		</main>
 
 		<script src="//maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 		<script type='text/javascript'>
