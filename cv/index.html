@@ -1,0 +1,687 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artūrs Reiljans</title>
+    <style>
+        @media print {
+            @page {
+                margin: 2.5cm;
+            }
+
+            body > main > article {
+                padding: 0;
+            }
+
+            body > nav {
+                display: none;
+            }
+        }
+
+        body {
+            font-family: Arial, Liberation Sans, sans-serif;
+            line-height: 1.5rem;
+            margin: 0;
+        }
+
+        body > nav {
+            padding: .8rem 1rem;
+            background: #efefd9;
+            border-bottom: 1px solid #d2d2c3;
+        }
+
+        body > nav a {
+            color: #5e5e29;
+        }
+
+        body > nav > ul {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            column-gap: 1rem;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body > nav > ul > li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body > nav > ul > li > a:before {
+            content: attr(data-icon);
+            display: inline-block;
+            text-decoration: none;
+            padding: 0 .5rem 0 0;
+        }
+
+        body > nav > ul > li:not(:first-child) {
+            font-weight: bold;
+        }
+
+        body > nav > ul,
+        body > main > article,
+        body > main > table {
+            max-width: 50em;
+            margin: 0 auto;
+        }
+
+        body > main > article {
+            padding: 1rem 1rem 0 1rem;
+        }
+
+        body > main a {
+            color: black;
+        }
+
+        h1, h2, body > main > table > thead > tr > th
+        {
+            font-family: Georgia, Linux Libertine, serif;
+            font-style: italic;
+            font-weight: normal;
+            font-size: 1.5rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: normal;
+            margin: 0;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        body > main > article > * {
+            clear: both;
+        }
+
+        body > main > article > p:first-of-type {
+            font-family: Georgia, Linux Libertine, serif;
+            font-size: 1.2rem;
+            line-height: normal;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        body > main > table {
+            width: 100%;
+            page-break-inside: avoid;
+            border-collapse: collapse;
+        }
+
+        body > main > table > tbody > tr > td {
+            border-top: 1px solid #eee;
+            height: 1px;
+        }
+
+        body > main > table > thead > tr > th,
+        body > main > table > thead > tr > td,
+        body > main > table > tbody > tr > td {
+            vertical-align: top;
+            padding: .5rem .5rem .5rem 0;
+        }
+
+        body > main > table > tbody > tr > td > figure {
+            margin: 0;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+        }
+
+        body > main > table > tbody > tr > td > figure > * {
+            margin: 0;
+            padding: .3rem .5rem;
+        }
+
+        body > main > table > tbody > tr > td > figure > *:not(:first-child) {
+            padding-top: 0;
+        }
+
+        body > main > table > tbody > tr > td > figure > figcaption {
+            font-style: italic;
+        }
+
+        body > main > table > tbody > tr > td > figure > aside {
+            color: #666666;
+        }
+
+        body > main > table > thead > tr > th:not(:first-child) {
+            width: 32%;
+            text-align: left;
+        }
+
+        .contacts {
+            display: table;
+            white-space: nowrap;
+            padding: 0;
+            float: right;
+        }
+
+        .contacts > li {
+            display: table-cell;
+            list-style: none;
+        }
+
+        .contacts > li:not(:first-child) {
+            padding-left: .8rem;
+        }
+
+        .year {
+            color: #666666;
+        }
+
+        .skill, .project, .school {
+            border-radius: .25em;
+        }
+
+        .skill {
+            background: #b6f0ff;
+        }
+
+        .project {
+            background: #ffead9;
+        }
+
+        .school {
+            background: #e0ffd9;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>
+            <a data-icon="🛖" href="/">Go to homepage</a>
+        </li>
+        <li>
+            <a data-icon="📄" href="/cv/cv_arturs-reiljans_web-developer.pdf">Get CV as PDF</a>
+        </li>
+    </ul>
+</nav>
+<main>
+    <article>
+        <h1>Artūrs Reiljans</h1>
+        <ul class="contacts">
+            <li>Riga, Latvia</li>
+            <li><a href="mailto:ernt@ernt.lv">ernt@ernt.lv</a></li>
+            <li><a href="tel:37129690196">(+371) 2-96-901-96</a></li>
+            <li><a href="https://ernt.lv">https://ernt.lv</a></li>
+        </ul>
+        <p>
+            I enjoy creating useful Internet projects, both as work and as a hobby
+        </p>
+        <h2>Tech stack</h2>
+        <ul>
+            <li>
+                My strongest professional skill — <span class="skill">PHP</span>
+                <ul>
+                    <li>
+                        And framework of choice is <span class="skill">Symfony</span>
+                        <ul>
+                            <li>
+                                First introduced to it on an existing project at
+                                <span class="project">Intexsys</span>, used later
+                                for replacing legacy email subscription management
+                                system with a shiny new one.
+                            </li>
+                            <li>
+                                Used for a new service for retrieving road closures
+                                data from various APIs at <span class="project">Mappost</span>.
+                            </li>
+                            <li>
+                                <span class="project">Placewatch</span>, my pet project
+                                and technical playground, runs on Symfony as well.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Used <span class="skill">Laravel</span> at <span
+                            class="project">Printify</span>,
+                        <span class="skill">Zend Framework</span> at <span
+                            class="project">Mogo</span>,
+                        <span class="skill">Slim Framework</span> at <span
+                            class="project">Car Rental Gateway</span>.
+                    </li>
+                    <li>
+                        Wrote a standalone library with plugins for Laravel and
+                        <span class="skill">Yii2</span> at <span class="project">Printful</span>.
+                    </li>
+                    <li>
+                        In early years, reinvented the wheel by creating my own
+                        framework for <span class="project">Zurbu</span>. Who didn't?
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Databases
+                <ul>
+                    <li>Relational ones like <span class="skill">MySQL</span> and
+                        <span class="skill">PostgreSQL</span>. That's ubiquitous.
+                    </li>
+                    <li>
+                        NoSQL, too:
+                        <span class="skill">ElasticSearch</span>,
+                        <span class="skill">Redis</span>,
+                        <span class="skill">MongoDB</span>…
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                Message queues
+                <ul>
+                    <li>
+                        <span class="skill">RabbitMQ</span>. First met at
+                        <span class="project">Intexsys</span>, used extensively
+                        for creating internal publish-subscribe library at
+                        <span class="project">Printful</span>. The latter also
+                        included <span class="skill">Protobuf</span> serialization.
+                    </li>
+                    <li>
+                        Used PostgreSQL for simpler queues at
+                        <span class="project">Placewatch</span>.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Infrastructure
+                <ul>
+                    <li><span class="skill">Docker</span>. Almost everywhere nowadays.</li>
+                    <li>Configured <span class="project">Placewatch</span> servers with <span class="skill">Ansible</span>.</li>
+                    <li>
+                        Implemented deployments with <span class="skill">Bitbucket Pipelines</span>
+                        at <span class="project">Mappost</span>, and <span class="skill">GitHub Actions</span>
+                        at <span class="project">Placewatch</span>.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Even though I'm more of a back-end person, I maintain some interest in front-end, too
+                <ul>
+                    <li>
+                        <span class="skill">HTML</span> and
+                        <span class="skill">CSS</span> — often happy to see
+                        new features get more green boxes at caniuse.com.
+                    </li>
+                    <li>
+                        <span class="skill">JavaScript</span> — less of an expert
+                        here but still able to do a thing or two.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Stepping out of a comfort zone
+                <ul>
+                    <li>
+                        Used <span class="skill">NodeJS</span> for a new
+                        microservice at
+                        <span class="project">Car Rental Gateway</span>.
+                    </li>
+                    <li>
+                        Wrote some <span class="skill">Java</span> code using
+                        <span class="skill">Spring Framework</span> for a legacy
+                        microservice at <span class="project">Printify</span>.
+                    </li>
+                    <li>
+                        Played around with <span class="skill">Go</span> for
+                        <span class="project">Placewatch</span>.
+                    </li>
+                    <li>
+                        Created a very basic but useful <span
+                            class="skill">Android</span>
+                        app for <span class="project">Placewatch</span>.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Communication</h2>
+        <ul>
+            <li>
+                Migrated existing <span class="project">Mappost</span> codebase
+                from SVN to Git — few simple commands, lots of explaining,
+                introducing Gitflow-based processes, mentoring, and other
+                <span class="skill">people skills</span>.
+            </li>
+            <li>
+                <span class="project">IT Micro</span> was a small company with lots
+                of integrations. 10 countries, 33 mobile carriers, 10 languages, 19 APIs
+                used for carrier lookups, WAP billing, SMS sending and
+                receiving — apart from technical flexibility, this also required
+                constant <span class="skill">external communication</span>.
+            </li>
+            <li>
+                <span class="skill">Agile</span>, <span class="skill">Scrum</span>.
+                Captain Obvious asked me to write this line.
+            </li>
+            <li>
+                As a company owner, I am able to work on <span class="skill">B2B contracts</span>.
+            </li>
+        </ul>
+
+        <h2>Languages</h2>
+        <ul>
+            <li>
+                I am fluent in <span class="skill">Russian</span>,
+                <span class="skill">Latvian</span> and
+                <span class="skill">English</span>.
+            </li>
+            <li>
+                Able to read, write basic texts and hold everyday conversations
+                in <span class="skill">German</span>.
+            </li>
+            <li>
+                Generally curious about unfamiliar ones. Once even implemented an
+                API integration using documentation in Romanian at
+                <span class="project">Mogo</span>.
+            </li>
+        </ul>
+    </article>
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Jobs</th>
+            <th colspan="2">Personal projects</th>
+            <th colspan="2">Education</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                All of them as a back-end developer in Riga, Latvia,
+                unless noted otherwise
+            </td>
+            <td colspan="2">
+                An urban-themed play in four acts
+            </td>
+            <td colspan="2">
+                Made my first steps in Pascal at school and Progmeistars,
+                self-taught afterwards
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="year">2023</td>
+            <td>
+                <figure class="project">
+                    <figcaption>
+                        <a href="https://www.carrentalgateway.com/">
+                            Car Rental Gateway
+                        </a>
+                    </figcaption>
+                    <aside>Tartu, Estonia</aside>
+                    <p>A car rental aggregator</p>
+                </figure>
+            </td>
+            <td rowspan="10">
+                <figure class="project">
+                    <figcaption>
+                        <a href="https://place.watch/">Placewatch</a>
+                    </figcaption>
+                    <p>
+                        A platform about places that are about to change.
+                    </p>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2022</td>
+            <td rowspan="2">
+                <figure class="project">
+                    <figcaption>
+                        <a href="https://www.printful.com/">Printful</a>
+                    </figcaption>
+                    <p>A print on demand system</p>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td rowspan="2" class="year">2021</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <figure class="project">
+                    <figcaption>
+                        <a href="https://mappost.eu/">Mappost</a>
+                    </figcaption>
+                    <p>A task planning and route optimization system</p>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2020</td>
+            <td rowspan="2">
+                <figure class="project">
+                    <figcaption>
+                        <a href="https://printify.com/">Printify</a>
+                    </figcaption>
+                    <p>A print on demand system</p>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2019</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2018</td>
+            <td>
+                <figure class="project">
+                    <figcaption>
+                        <a href="https://eleving.com/">Mogo</a>
+                    </figcaption>
+                    <p>An international vehicle leasing system</p>
+                </figure>
+            </td>
+            <td rowspan="16">
+                <figure class="project">
+                    <figcaption>
+                        <a href="http://forum.myriga.info/">“The Talks on Riga”</a>
+                    </figcaption>
+                    <p>
+                        A well-established old-school meeting place for
+                        people interested in history and development of Riga.
+                    </p>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2017</td>
+            <td rowspan="4">
+                <figure class="project">
+                    <figcaption>
+                        <a href="https://www.intexsys.lv/">Intexsys</a>
+                    </figcaption>
+                    <p>A multi-website US-based e-commerce platform</p>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">…</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2014</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td rowspan="2" class="year">2013</td>
+            <td rowspan="6">
+                <figure class="project">
+                    <figcaption>
+                        <a href="http://zurbu.net/">Zurbu</a>
+                    </figcaption>
+                    <p>
+                        A moonshot at creating a platform for local history blogs and forums worldwide.
+                    </p>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td rowspan="3">
+                <figure class="project">
+                    <figcaption>IT Micro</figcaption>
+                    <p>SMS-based quiz and chat games and lotteries</p>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">…</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2010</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2009</td>
+            <td>&nbsp;</td>
+            <td rowspan="2">
+                <figure class="school">
+                    <figcaption>
+                        <a href="https://www.lu.lv/">University of Latvia</a>
+                    </figcaption>
+                    <aside>History</aside>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td rowspan="2" class="year">2008</td>
+            <td rowspan="3">
+                <figure class="project">
+                    <figcaption>True Vision</figcaption>
+                    <aside>front-end</aside>
+                    <p>Corporate websites, online stores</p>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td rowspan="9">
+                <figure class="project">
+                    <figcaption>
+                        <a href="https://1201.lv/">“Riga. History and Sights”</a>
+                    </figcaption>
+                    <p>
+                        A school project on octocentenary of Riga that evolved
+                        into a popular history blog, gallery of old maps,
+                        and a forum.
+                    </p>
+                </figure>
+            </td>
+            <td rowspan="2">
+                <figure class="school">
+                    <figcaption>
+                        <a href="https://www.lu.lv/">University of Latvia</a>
+                    </figcaption>
+                    <aside>Law</aside>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td rowspan="2" class="year">2007</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                <figure class="project">
+                    <figcaption>freelance</figcaption>
+                    <aside>front-end, SEO</aside>
+                </figure>
+            </td>
+            <td rowspan="9">
+                <figure class="school">
+                    <figcaption>
+                        <a href="https://r40vsk.lv/">Riga Secondary School №40</a>
+                    </figcaption>
+                </figure>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2006</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2005</td>
+            <td>&nbsp;</td>
+            <td rowspan="3">
+                <figure class="school">
+                    <figcaption>
+                        <a href="http://www.progmeistars.lv/">Progmeistars</a>
+                    </figcaption>
+                </figure>
+            </td>
+        </tr>
+        <tr>
+            <td class="year">2004</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2003</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">…</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">2001</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">…</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="year">1996</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
