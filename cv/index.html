@@ -4,25 +4,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Artūrs Reiljans</title>
     <style>
-        @media print {
-            body > nav {
-                display: none;
-            }
-
-            body > main {
-                padding: 0;
-            }
-        }
-
         body {
             font-family: Arial, Liberation Sans, sans-serif;
-            line-height: 1.5rem;
+            line-height: 1.45rem;
             margin: 0;
         }
 
         body > nav {
             background: #efefd9;
             border-bottom: 1px solid #d2d2c3;
+        }
+
+        @media print {
+            body > nav {
+                display: none;
+            }
         }
 
         body > nav a {
@@ -64,8 +60,16 @@
             padding: 1rem;
         }
 
-        body > main > article,
-        body > main > article > table {
+        @media print {
+            body > main {
+                padding: 0;
+                max-width: unset;
+                margin: 0;
+            }
+        }
+
+        body > main > article > div,
+        body > main > article > div > table {
             width: 100%;
             overflow-x: auto;
             box-sizing: border-box;
@@ -76,7 +80,7 @@
         }
 
         h1, h2 {
-            font-family: Georgia, "Droid Serif", serif;
+            font-family: Georgia, "Noto Serif", serif;
             font-style: italic;
             font-weight: normal;
             font-size: 1.5rem;
@@ -90,6 +94,12 @@
             text-align: center;
         }
 
+        @media print {
+            h1 {
+                padding-top: 0;
+            }
+        }
+
         body > main > article {
             page-break-inside: avoid;
         }
@@ -99,72 +109,87 @@
         }
 
         body > main > article > p:first-of-type {
-            font-family: Georgia, "Droid Serif", serif;
+            font-family: Georgia, "Noto Serif", serif;
             font-size: 1.2rem;
             line-height: normal;
             text-align: center;
             padding-bottom: 1rem;
         }
 
-        body > main > article > table {
+        body > main > article > div > table {
             border-collapse: collapse;
         }
 
-        body > main > article > table > tbody > tr > td {
+        body > main > article > div > table > tbody > tr > td {
             border-top: 1px solid #eee;
             height: 1px;
         }
 
-        body > main > article > table > thead > tr > th,
-        body > main > article > table > thead > tr > td,
-        body > main > article > table > tbody > tr > td {
+        body > main > article > div > table > thead > tr > th,
+        body > main > article > div > table > thead > tr > td,
+        body > main > article > div > table > tbody > tr > td {
             vertical-align: top;
             padding: .5rem .5rem .5rem 0;
         }
 
-        body > main > article > table > tbody > tr > td > figure {
+        body > main > article > div > table > tbody > tr > td > figure {
             margin: 0;
             box-sizing: border-box;
             width: 100%;
             height: 100%;
         }
 
-        body > main > article > table > tbody > tr > td > figure > * {
+        body > main > article > div > table > tbody > tr > td > figure > * {
             margin: 0;
             padding: .3rem .5rem;
         }
 
-        body > main > article > table > tbody > tr > td > figure > *:not(:first-child) {
+        body > main > article > div > table > tbody > tr > td > figure > *:not(:first-child) {
             padding-top: 0;
         }
 
-        body > main > article > table > tbody > tr > td > figure > figcaption {
+        body > main > article > div > table > tbody > tr > td > figure > figcaption {
             font-style: italic;
         }
 
-        body > main > article > table > tbody > tr > td > figure > aside {
+        body > main > article > div > table > tbody > tr > td > figure > aside {
             color: #666666;
         }
 
-        body > main > article > table > thead > tr > th:not(:first-child) {
+        body > main > article > div > table > thead > tr > th:not(:first-child) {
             width: 32%;
             text-align: left;
         }
 
         .contacts {
-            display: table;
-            white-space: nowrap;
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+            justify-content: end;
+            column-gap: .8rem;
+            row-gap: .25rem;
             padding: 0;
-            float: right;
         }
 
         .contacts > li {
-            display: table-cell;
             list-style: none;
         }
 
-        .contacts > li:not(:first-child) {
-            padding-left: .8rem;
+        @media print {
+            /** wkhtmltopdf does not support display: flex */
+            .contacts {
+                display: table;
+                white-space: nowrap;
+                float: right;
+            }
+
+            .contacts > li {
+                display: table-cell;
+            }
+
+            .contacts > li:not(:first-child) {
+                padding-left: .8rem;
+            }
         }
 
         .year {
@@ -384,311 +409,313 @@
     </article>
     <article>
         <h2>Timeline</h2>
-        <table>
-            <thead>
-            <tr>
-                <th></th>
-                <th>Jobs</th>
-                <th colspan="2">Personal projects</th>
-                <th colspan="2">Education</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td></td>
-                <td>
-                    All of them as a back-end developer in Riga, Latvia,
-                    unless noted otherwise
-                </td>
-                <td colspan="2">
-                    An urban-themed play in four acts
-                </td>
-                <td colspan="2">
-                    Made my first steps in Pascal at school and Progmeistars,
-                    self-taught afterwards
-                </td>
-            </tr>
-            <tr>
-                <td class="year">2023</td>
-                <td>
-                    <figure class="project">
-                        <figcaption>
-                            <a href="https://www.carrentalgateway.com/">
-                                Car Rental Gateway
-                            </a>
-                        </figcaption>
-                        <aside>Tartu, Estonia</aside>
-                        <p>A car rental aggregator</p>
-                    </figure>
-                </td>
-                <td rowspan="10">
-                    <figure class="project">
-                        <figcaption>
-                            <a href="https://place.watch/">Placewatch</a>
-                        </figcaption>
-                        <p>
-                            A platform about places that are about to change.
-                        </p>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2022</td>
-                <td rowspan="2">
-                    <figure class="project">
-                        <figcaption>
-                            <a href="https://www.printful.com/">Printful</a>
-                        </figcaption>
-                        <p>A print on demand system</p>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="2" class="year">2021</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    <figure class="project">
-                        <figcaption>
-                            <a href="https://mappost.eu/">Mappost</a>
-                        </figcaption>
-                        <p>A task planning and route optimization system</p>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2020</td>
-                <td rowspan="2">
-                    <figure class="project">
-                        <figcaption>
-                            <a href="https://printify.com/">Printify</a>
-                        </figcaption>
-                        <p>A print on demand system</p>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2019</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2018</td>
-                <td>
-                    <figure class="project">
-                        <figcaption>
-                            <a href="https://eleving.com/">Mogo</a>
-                        </figcaption>
-                        <p>An international vehicle leasing system</p>
-                    </figure>
-                </td>
-                <td rowspan="16">
-                    <figure class="project">
-                        <figcaption>
-                            <a href="http://forum.myriga.info/">“The Talks on Riga”</a>
-                        </figcaption>
-                        <p>
-                            A well-established old-school meeting place for
-                            people interested in history and development of Riga.
-                        </p>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2017</td>
-                <td rowspan="4">
-                    <figure class="project">
-                        <figcaption>
-                            <a href="https://www.intexsys.lv/">Intexsys</a>
-                        </figcaption>
-                        <p>A multi-website US-based e-commerce platform</p>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">…</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2014</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="2" class="year">2013</td>
-                <td rowspan="6">
-                    <figure class="project">
-                        <figcaption>
-                            <a href="http://zurbu.net/">Zurbu</a>
-                        </figcaption>
-                        <p>
-                            A moonshot at creating a platform for local history blogs and forums worldwide.
-                        </p>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="3">
-                    <figure class="project">
-                        <figcaption>IT Micro</figcaption>
-                        <p>SMS-based quiz and chat games and lotteries</p>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">…</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2010</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2009</td>
-                <td>&nbsp;</td>
-                <td rowspan="2">
-                    <figure class="school">
-                        <figcaption>
-                            <a href="https://www.lu.lv/">University of Latvia</a>
-                        </figcaption>
-                        <aside>History</aside>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="2" class="year">2008</td>
-                <td rowspan="3">
-                    <figure class="project">
-                        <figcaption>True Vision</figcaption>
-                        <aside>front-end</aside>
-                        <p>Corporate websites, online stores</p>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="9">
-                    <figure class="project">
-                        <figcaption>
-                            <a href="https://1201.lv/">“Riga. History and Sights”</a>
-                        </figcaption>
-                        <p>
-                            A school project on octocentenary of Riga that evolved
-                            into a popular history blog, gallery of old maps,
-                            and a forum.
-                        </p>
-                    </figure>
-                </td>
-                <td rowspan="2">
-                    <figure class="school">
-                        <figcaption>
-                            <a href="https://www.lu.lv/">University of Latvia</a>
-                        </figcaption>
-                        <aside>Law</aside>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="2" class="year">2007</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="2">
-                    <figure class="project">
-                        <figcaption>freelance</figcaption>
-                        <aside>front-end, SEO</aside>
-                    </figure>
-                </td>
-                <td rowspan="9">
-                    <figure class="school">
-                        <figcaption>
-                            <a href="https://r40vsk.lv/">Riga Secondary School №40</a>
-                        </figcaption>
-                    </figure>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2006</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2005</td>
-                <td>&nbsp;</td>
-                <td rowspan="3">
-                    <figure class="school">
-                        <figcaption>
-                            <a href="http://www.progmeistars.lv/">Progmeistars</a>
-                        </figcaption>
-                    </figure>
-                </td>
-            </tr>
-            <tr>
-                <td class="year">2004</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2003</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">…</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">2001</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">…</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="year">1996</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            </tbody>
-        </table>
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Jobs</th>
+                    <th colspan="2">Personal projects</th>
+                    <th colspan="2">Education</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td>
+                        All of them as a back-end developer in Riga, Latvia,
+                        unless noted otherwise
+                    </td>
+                    <td colspan="2">
+                        An urban-themed play in four acts
+                    </td>
+                    <td colspan="2">
+                        Made my first steps in Pascal at school and Progmeistars,
+                        self-taught afterwards
+                    </td>
+                </tr>
+                <tr>
+                    <td class="year">2023</td>
+                    <td>
+                        <figure class="project">
+                            <figcaption>
+                                <a href="https://www.carrentalgateway.com/">
+                                    Car Rental Gateway
+                                </a>
+                            </figcaption>
+                            <aside>Tartu, Estonia</aside>
+                            <p>A car rental aggregator</p>
+                        </figure>
+                    </td>
+                    <td rowspan="10">
+                        <figure class="project">
+                            <figcaption>
+                                <a href="https://place.watch/">Placewatch</a>
+                            </figcaption>
+                            <p>
+                                A platform about places that are about to change.
+                            </p>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2022</td>
+                    <td rowspan="2">
+                        <figure class="project">
+                            <figcaption>
+                                <a href="https://www.printful.com/">Printful</a>
+                            </figcaption>
+                            <p>A print on demand system</p>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" class="year">2021</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <figure class="project">
+                            <figcaption>
+                                <a href="https://mappost.eu/">Mappost</a>
+                            </figcaption>
+                            <p>A task planning and route optimization system</p>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2020</td>
+                    <td rowspan="2">
+                        <figure class="project">
+                            <figcaption>
+                                <a href="https://printify.com/">Printify</a>
+                            </figcaption>
+                            <p>A print on demand system</p>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2019</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2018</td>
+                    <td>
+                        <figure class="project">
+                            <figcaption>
+                                <a href="https://eleving.com/">Mogo</a>
+                            </figcaption>
+                            <p>An international vehicle leasing system</p>
+                        </figure>
+                    </td>
+                    <td rowspan="16">
+                        <figure class="project">
+                            <figcaption>
+                                <a href="http://forum.myriga.info/">“The Talks on Riga”</a>
+                            </figcaption>
+                            <p>
+                                A well-established old-school meeting place for
+                                people interested in history and development of Riga.
+                            </p>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2017</td>
+                    <td rowspan="4">
+                        <figure class="project">
+                            <figcaption>
+                                <a href="https://www.intexsys.lv/">Intexsys</a>
+                            </figcaption>
+                            <p>A multi-website US-based e-commerce platform</p>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">…</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2014</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" class="year">2013</td>
+                    <td rowspan="6">
+                        <figure class="project">
+                            <figcaption>
+                                <a href="http://zurbu.net/">Zurbu</a>
+                            </figcaption>
+                            <p>
+                                A moonshot at creating a platform for local history blogs and forums worldwide.
+                            </p>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">
+                        <figure class="project">
+                            <figcaption>IT Micro</figcaption>
+                            <p>SMS-based quiz and chat games and lotteries</p>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">…</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2010</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2009</td>
+                    <td>&nbsp;</td>
+                    <td rowspan="2">
+                        <figure class="school">
+                            <figcaption>
+                                <a href="https://www.lu.lv/">University of Latvia</a>
+                            </figcaption>
+                            <aside>History</aside>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" class="year">2008</td>
+                    <td rowspan="3">
+                        <figure class="project">
+                            <figcaption>True Vision</figcaption>
+                            <aside>front-end</aside>
+                            <p>Corporate websites, online stores</p>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="9">
+                        <figure class="project">
+                            <figcaption>
+                                <a href="https://1201.lv/">“Riga. History and Sights”</a>
+                            </figcaption>
+                            <p>
+                                A school project on octocentenary of Riga that evolved
+                                into a popular history blog, gallery of old maps,
+                                and a forum.
+                            </p>
+                        </figure>
+                    </td>
+                    <td rowspan="2">
+                        <figure class="school">
+                            <figcaption>
+                                <a href="https://www.lu.lv/">University of Latvia</a>
+                            </figcaption>
+                            <aside>Law</aside>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" class="year">2007</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        <figure class="project">
+                            <figcaption>freelance</figcaption>
+                            <aside>front-end, SEO</aside>
+                        </figure>
+                    </td>
+                    <td rowspan="9">
+                        <figure class="school">
+                            <figcaption>
+                                <a href="https://r40vsk.lv/">Riga Secondary School №40</a>
+                            </figcaption>
+                        </figure>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2006</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2005</td>
+                    <td>&nbsp;</td>
+                    <td rowspan="3">
+                        <figure class="school">
+                            <figcaption>
+                                <a href="http://www.progmeistars.lv/">Progmeistars</a>
+                            </figcaption>
+                        </figure>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="year">2004</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2003</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">…</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">2001</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">…</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="year">1996</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </article>
 </main>
 </body>
