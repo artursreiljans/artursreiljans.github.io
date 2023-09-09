@@ -5,7 +5,7 @@
     <style>
         @media print {
             @page {
-                margin: 2.5cm;
+                margin: 2rem;
             }
 
             body > main > article {
@@ -24,7 +24,6 @@
         }
 
         body > nav {
-            padding: .8rem 1rem;
             background: #efefd9;
             border-bottom: 1px solid #d2d2c3;
         }
@@ -61,14 +60,17 @@
         }
 
         body > nav > ul,
-        body > main > article,
-        body > main > table {
+        body > main {
             max-width: 50em;
             margin: 0 auto;
+            box-sizing: border-box;
+            padding: 1rem;
         }
 
-        body > main > article {
-            padding: 1rem 1rem 0 1rem;
+        body > main > article,
+        body > main > table {
+            width: 100%;
+            box-sizing: border-box;
         }
 
         body > main a {
@@ -263,6 +265,10 @@
                         <span class="skill">ElasticSearch</span>,
                         <span class="skill">Redis</span>,
                         <span class="skill">MongoDB</span>…
+                    </li>
+                    <li>
+                        Did anyone say embedded? <span class="project">Placewatch</span>
+                        data export is based on <span class="skill">SQLite</span>.
                     </li>
                 </ul>
             </li>
