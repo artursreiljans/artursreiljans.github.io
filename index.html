@@ -93,9 +93,10 @@
 					"hashtags"
 					"projects"
 					"x-spacer"
-					"social"
+					"cv"
 					"email"
 					"phone"
+					"social"
 					"x-none-1"
 				;
 				grid-template-rows: 1fr repeat(9, auto) 1fr;
@@ -110,9 +111,10 @@
 						"x-none-1   photo"
 						"name-first name-last"
 						"hashtags   hashtags"
-						"social     projects"
+						"cv         projects"
 						"email      projects"
 						"phone      projects"
+						"social     projects"
 						"x-none-2   projects"
 						"x-none-3   x-none-3"
 					;
@@ -170,10 +172,14 @@
 			}
 
 			html > body > div > main > address:nth-of-type(1) {
-				grid-area: email;
+				grid-area: cv;
 			}
 
 			html > body > div > main > address:nth-of-type(2) {
+				grid-area: email;
+			}
+
+			html > body > div > main > address:nth-of-type(3) {
 				grid-area: phone;
 			}
 
@@ -291,25 +297,16 @@
 				content: '-'
 			}
 
-			html > body > div > main > address > a[href^='mailto:'],
-			html > body > div > main > address > a[href^='tel:'] {
+			html > body > div > main > address > a[data-icon] {
 				position: relative;
 			}
 
-			html > body > div > main > address > a[href^='mailto:']::before,
-			html > body > div > main > address > a[href^='tel:']::before {
+			html > body > div > main > address > a[data-icon]::before {
+				content: attr(data-icon);
 				font-family: 'Noto Emoji';
 				display: inline-block;
 				vertical-align: baseline;
 				margin-right: 1ex;
-			}
-
-			html > body > div > main a[href^='mailto:']::before {
-				content: '📨';
-			}
-
-			html > body > div > main a[href^='tel:']::before {
-				content: '📞';
 			}
 		</style>
 	</head>
@@ -342,7 +339,7 @@
 				</ul>
 
 				<ul>
-					<li><code><a tabindex="1" class="u-url url" rel="me" href='https://www.linkedin.com/in/artursreiljans/'>LinkedIn</a></code></li>
+<!--					<li><code><a tabindex="1" class="u-url url" rel="me" href='https://www.linkedin.com/in/artursreiljans/'>LinkedIn</a></code></li>-->
 					<li><a tabindex="1" class="u-url url" rel="me" href='https://twitter.com/artursreiljans'>Twitter</a></li>
 					<li><a tabindex="1" class="u-url url" rel="me" href='https://www.instagram.com/artursreiljans/'>Inﬆagram</a></li>
 					<li><a tabindex="1" class="u-url url" rel="me" href='https://www.facebook.com/arturs.reiljans'>Facebook</a></li>
@@ -350,11 +347,15 @@
 				</ul>
 
 				<address>
-					<a tabindex="1" href='mailto:ernt@ernt.lv' class="u-email email">ernt@ernt.lv</a>
+					<a tabindex="1" href='/cv/' class="u-url url" data-icon="💻">CV</a>
 				</address>
 
 				<address>
-					<a tabindex="1" href='tel:+37129690196' class='p-tel tel'><span>+371</span><span>2</span><span>96</span><span>901</span><span>96</span></a>
+					<a tabindex="1" href='mailto:ernt@ernt.lv' class="u-email email" data-icon="📨">ernt@ernt.lv</a>
+				</address>
+
+				<address>
+					<a tabindex="1" href='tel:+37129690196' class='p-tel tel' data-icon="📞"><span>+371</span><span>2</span><span>96</span><span>901</span><span>96</span></a>
 				</address>
 			</main>
 		</div>
