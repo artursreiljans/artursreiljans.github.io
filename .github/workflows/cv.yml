@@ -22,6 +22,7 @@ jobs:
       - name: Generate CV
         run: make -d $GITHUB_WORKSPACE cv
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Generate CV PDF"
