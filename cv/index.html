@@ -94,6 +94,21 @@
             text-align: center;
         }
 
+        h3,
+        body > main > article > div > table > thead > tr > th {
+            font-family: Georgia, "Noto Serif", serif;
+            font-size: 1.25rem;
+            font-weight: normal;
+        }
+
+        h3,
+        body > main > article > ul {
+            margin-top: 0;
+            margin-bottom: 2rex;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
         @media print {
             h1 {
                 padding-top: 0;
@@ -101,7 +116,7 @@
         }
 
         body > main > article {
-            page-break-inside: avoid;
+            break-inside: avoid;
         }
 
         body > main > article > * {
@@ -121,22 +136,21 @@
         }
 
         body > main > article > div > table > tbody > tr > td {
-            border-top: 1px solid #eee;
             height: 1px;
         }
 
         body > main > article > div > table > thead > tr > th,
-        body > main > article > div > table > thead > tr > td,
         body > main > article > div > table > tbody > tr > td {
             vertical-align: top;
             padding: .3rem .5rem .3rem 0;
+            border-bottom: 1px solid #f8f8f8;
         }
 
         body > main > article > div > table > tbody > tr > td > figure {
-            margin: 0;
             box-sizing: border-box;
             width: 100%;
             height: 100%;
+            margin: 0 .5rem .3rem 0;
         }
 
         body > main > article > div > table > tbody > tr > td > figure > * {
@@ -159,6 +173,17 @@
         body > main > article > div > table > thead > tr > th:not(:first-child) {
             width: 32%;
             text-align: left;
+        }
+
+        ul.compact {
+            list-style: none;
+            margin-top: -1ex;
+        }
+
+        ul.compact > li {
+            display: inline-block;
+            white-space: nowrap;
+            margin: 1ex 1rem 0 0;
         }
 
         .contacts {
@@ -238,158 +263,117 @@
             I enjoy creating useful Internet projects, both as work and as a
             hobby
         </p>
-        <h2>Tech stack</h2>
+        <h2>Skills</h2>
+        <h3><span class="skill">PHP</span></h3>
         <ul>
             <li>
-                My strongest professional skill — <span class="skill">PHP</span>
+                Well-versed in <span class="skill">Symfony</span>:
                 <ul>
                     <li>
-                        And framework of choice is <span
-                            class="skill">Symfony</span>
-                        <ul>
-                            <li>
-                                Got introduced to it on an existing e-commerce
-                                platform at
-                                <span class="project">Intexsys</span>, used
-                                later
-                                for replacing legacy email subscription
-                                management
-                                system with a shiny new one.
-                            </li>
-                            <li>
-                                Used for a new service for retrieving road
-                                closures
-                                data from various APIs at <span class="project">Mappost</span>.
-                            </li>
-                            <li>
-                                <span class="project">Zurbu</span>, my pet
-                                project
-                                and technical playground, runs on Symfony as
-                                well.
-                            </li>
-                        </ul>
+                        First met on an existing e-commerce platform at
+                        <span class="project">Intexsys</span>, used later for
+                        replacing legacy email subscription management system
+                        with a shiny new one.
                     </li>
                     <li>
-                        Used <span class="skill">Laravel</span> at <span
-                            class="project">Printify</span>, <span
-                            class="project">PATA</span> and <span
-                            class="project">Tilt</span>,
-                        <span class="skill">Zend Framework</span> at <span
-                            class="project">Mogo</span>,
-                        <span class="skill">Slim Framework</span> at <span
-                            class="project">Car Rental Gateway</span>.
+                        Started a new service for retrieving road closures data
+                        from various APIs at <span class="project">Mappost</span>.
                     </li>
                     <li>
-                        Wrote a standalone library with plugins for Laravel and
-                        <span class="skill">Yii2</span> at <span
-                            class="project">Printful</span>.
-                    </li>
-                    <li>
-                        In early years, reinvented the wheel by creating my own
-                        framework for <span class="project">Zurbu</span>. Who
-                        didn't?
+                        My pet project, <span class="project">Zurbu v2</span>,
+                        runs on Symfony as well.
                     </li>
                 </ul>
             </li>
             <li>
-                Databases
+                Worked extensively with <span class="skill">Laravel</span>:
                 <ul>
-                    <li>Relational ones like <span class="skill">MySQL</span>
-                        and
-                        <span class="skill">PostgreSQL</span>. That's
-                        ubiquitous.
+                    <li>At <span class="project">Printify</span>,</li>
+                    <li>
+                        … and <span class="project">PATA</span> — using
+                        <span class="skill">Livewire</span> for a
+                        <span class="skill">progressive web app</span>,
                     </li>
                     <li>
-                        NoSQL, too:
-                        <span class="skill">ElasticSearch</span>,
-                        <span class="skill">Redis</span>,
-                        <span class="skill">MongoDB</span>…
-                    </li>
-                    <li>
-                        Did anyone say embedded? <span class="project">Zurbu</span>
-                        data export is based on <span
-                            class="skill">SQLite</span>.
-                    </li>
-                </ul>
-            </li>
-
-            <li>
-                Message queues
-                <ul>
-                    <li>
-                        <span class="skill">RabbitMQ</span>. First met at
-                        <span class="project">Intexsys</span>, used extensively
-                        for creating internal publish-subscribe library at
-                        <span class="project">Printful</span>. The latter also
-                        included <span class="skill">Protobuf</span>
-                        serialization.
-                    </li>
-                    <li>
-                        Used PostgreSQL for simpler queues at
-                        <span class="project">Zurbu</span>.
+                        … and <span class="project">Tilt</span> — using
+                        <span class="skill">Lighthouse</span> for
+                        <span class="skill">GraphQL</span>.
                     </li>
                 </ul>
             </li>
             <li>
-                Infrastructure
-                <ul>
-                    <li><span class="skill">Docker</span>. Almost everywhere
-                        nowadays.
-                    </li>
-                    <li>Configured <span class="project">Zurbu</span>
-                        servers with <span class="skill">Ansible</span>.
-                    </li>
-                    <li>
-                        Implemented deployments with <span class="skill">Bitbucket Pipelines</span>
-                        at <span class="project">Mappost</span>, and <span
-                            class="skill">GitHub Actions</span>
-                        at <span class="project">Zurbu</span>.
-                    </li>
-                </ul>
+                Used <span class="skill">Zend Framework</span> at
+                <span class="project">Mogo</span>, and
+                <span class="skill">Slim Framework</span> at
+                <span class="project">Car Rental Gateway</span>.
             </li>
             <li>
-                Even though I'm more of a back-end person, I maintain some
-                interest in front-end, too
-                <ul>
-                    <li>
-                        <span class="skill">HTML</span> and
-                        <span class="skill">CSS</span> — often happy to see
-                        new features get more green boxes at caniuse.com.
-                    </li>
-                    <li>
-                        <span class="skill">JavaScript</span> — less of an
-                        expert
-                        here but still able to do a thing or two.
-                    </li>
-                </ul>
+                Reinvented the wheel by creating own framework in my
+                early years for <span class="project">Zurbu v1</span>.
+                Who didn't?
             </li>
             <li>
-                Stepping out of a comfort zone
-                <ul>
-                    <li>
-                        Used <span class="skill">NodeJS</span> for a new
-                        microservice at
-                        <span class="project">Car Rental Gateway</span>.
-                    </li>
-                    <li>
-                        Wrote some <span class="skill">Java</span> code using
-                        <span class="skill">Spring Framework</span> for a legacy
-                        microservice at <span class="project">Printify</span>.
-                    </li>
-                    <li>
-                        Played around with <span class="skill">Go</span> for
-                        <span class="project">Zurbu</span>.
-                    </li>
-                    <li>
-                        Created a very basic but useful <span
-                            class="skill">Android</span>
-                        app for <span class="project">Zurbu</span>.
-                    </li>
-                </ul>
+                Wrote a standalone internal publish-subscribe library
+                with plugins for Laravel and <span class="skill">Yii2</span>
+                at <span class="project">Printful</span> — including adapters
+                for <span class="skill">Protobuf</span> serialization and
+                <span class="skill">RabbitMQ</span> queues.
             </li>
         </ul>
-
-        <h2>Communication</h2>
+        <h3>Databases and message queues</h3>
+        <ul class="compact">
+            <li class="skill">PostgreSQL</li>
+            <li class="skill">MySQL</li>
+            <li class="skill">ElasticSearch</li>
+            <li class="skill">Redis</li>
+            <li class="skill">MongoDB</li>
+            <li class="skill">SQLite</li>
+            <li>RabbitMQ</li>
+            <li>…</li>
+        </ul>
+        <h3>Infrastructure</h3>
+        <ul class="compact">
+            <li class="skill">Docker</li>
+            <li class="skill">Ansible</li>
+            <li class="skill">Bitbucket Pipelines</li>
+            <li class="skill">GitHub Actions</li>
+            <li>…</li>
+        </ul>
+        <h3>Maintaining some interest in front-end, too</h3>
+        <ul>
+            <li>
+                <span class="skill">HTML</span> and
+                <span class="skill">CSS</span> — often happy to see
+                new features get more green boxes at caniuse.com.
+            </li>
+            <li>
+                <span class="skill">JavaScript</span> — less of an
+                expert here but still able to do a thing or two.
+            </li>
+        </ul>
+        <h3>Stepping out of a comfort zone</h3>
+        <ul>
+            <li>
+                Used <span class="skill">Node.js</span> for a new
+                microservice at
+                <span class="project">Car Rental Gateway</span>.
+            </li>
+            <li>
+                Wrote some <span class="skill">Java</span> code using
+                <span class="skill">Spring Framework</span> for a legacy
+                microservice at <span class="project">Printify</span>.
+            </li>
+            <li>
+                Played around with <span class="skill">Go</span> for
+                <span class="project">Zurbu</span>.
+            </li>
+            <li>
+                Created a very basic but useful <span
+                    class="skill">Android</span>
+                app for <span class="project">Zurbu</span>.
+            </li>
+        </ul>
+        <h3>Communication</h3>
         <ul>
             <li>
                 Migrated existing <span class="project">Mappost</span> codebase
@@ -415,8 +399,7 @@
                 As a company owner, I am able to work on <span class="skill">B2B contracts</span>.
             </li>
         </ul>
-
-        <h2>Languages</h2>
+        <h3>Languages</h3>
         <ul>
             <li>
                 I am fluent in <span class="skill">English</span>,
@@ -463,7 +446,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="year">2025</td>
+                    <td class="year">&nbsp;</td>
                     <td rowspan="2">
                         <figure class="project">
                             <figcaption>
@@ -478,8 +461,9 @@
                                 <a href="https://zurbu.app/">Zurbu v2</a>
                             </figcaption>
                             <p>
-                                Home for location-based projects
+                                A platform for thematic projects with an emphasis on geography
                             </p>
+                            <p>My primary technical playground</p>
                             <p>Includes data migrated from the first version</p>
                         </figure>
                     </td>
@@ -488,7 +472,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td rowspan="2" class="year">2024</td>
+                    <td rowspan="2" class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -524,7 +508,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2022</td>
+                    <td class="year">&nbsp;</td>
                     <td rowspan="2">
                         <figure class="project">
                             <figcaption>
@@ -538,7 +522,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td rowspan="2" class="year">2021</td>
+                    <td rowspan="2" class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -557,7 +541,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2020</td>
+                    <td class="year">&nbsp;</td>
                     <td rowspan="2">
                         <figure class="project">
                             <figcaption>
@@ -571,7 +555,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2019</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -603,7 +587,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2017</td>
+                    <td class="year">&nbsp;</td>
                     <td rowspan="4">
                         <figure class="project">
                             <figcaption>
@@ -616,12 +600,12 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">…</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2014</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
@@ -650,17 +634,17 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">…</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2010</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2009</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td rowspan="2">
                         <figure class="school">
@@ -712,7 +696,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td rowspan="2" class="year">2007</td>
+                    <td rowspan="2" class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -733,11 +717,11 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2006</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2005</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td rowspan="3">
                         <figure class="school">
@@ -749,7 +733,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="year">2004</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -758,19 +742,19 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">…</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">2001</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="year">…</td>
+                    <td class="year">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
