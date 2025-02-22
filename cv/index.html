@@ -94,17 +94,17 @@
             text-align: center;
         }
 
-        h3,
-        body > main > article > div > table > thead > tr > th {
+        h3 {
             font-family: Georgia, "Noto Serif", serif;
             font-size: 1.25rem;
             font-weight: normal;
+            margin: 0;
+            padding: 0 0 .5ex 0;
         }
 
-        h3,
         body > main > article > ul {
             margin-top: 0;
-            margin-bottom: 1rex;
+            margin-bottom: 2ex;
             padding-top: 0;
             padding-bottom: 0;
         }
@@ -138,18 +138,31 @@
             height: 1px;
         }
 
+        body > main > article > div > table > thead > tr > th {
+            border-bottom: 1px solid #ddd;
+        }
+
         body > main > article > div > table > thead > tr > th,
         body > main > article > div > table > tbody > tr > td {
             vertical-align: top;
-            padding: .3rem .5rem .3rem 0;
-            border-bottom: 1px solid #f8f8f8;
+            padding: 0 .4rem .4rem 0;
+            font-weight: normal;
+        }
+
+        body > main > article > div > table > tbody > tr:first-child > td {
+            padding-top: .4rem;
+        }
+
+        body > main > article > div > table > thead > tr > th > p {
+            margin: 0;
+            padding: 0;
         }
 
         body > main > article > div > table > tbody > tr > td > figure {
             box-sizing: border-box;
             width: 100%;
             height: 100%;
-            margin: 0 .5rem .3rem 0;
+            margin: 0 .4rem .4rem 0;
         }
 
         body > main > article > div > table > tbody > tr > td > figure > * {
@@ -262,7 +275,7 @@
             I enjoy creating useful Internet projects, both as work and as a
             hobby
         </p>
-        <h2>Skills</h2>
+        <h2>What I’m good at</h2>
         <h3><span class="skill">PHP</span></h3>
         <ul>
             <li>
@@ -309,7 +322,7 @@
             <li>
                 Reinvented the wheel by creating own framework in my
                 early years for <span class="project">Zurbu v1</span>.
-                Who didn't?
+                Who didn’t?
             </li>
             <li>
                 Wrote a standalone internal publish-subscribe library
@@ -411,39 +424,39 @@
             </li>
             <li>
                 Generally curious about unfamiliar ones. Once even implemented
-                an
-                API integration using documentation in Romanian at
+                an API integration using documentation in Romanian at
                 <span class="project">Mogo</span>.
             </li>
         </ul>
     </article>
     <article>
-        <h2>Timeline</h2>
+        <h2>Where I learnt it</h2>
         <div>
             <table>
                 <thead>
                 <tr>
                     <th></th>
-                    <th>Jobs</th>
-                    <th colspan="2">Personal projects</th>
-                    <th colspan="2">Education</th>
+                    <th>
+                        <h3>Jobs</h3>
+                        <p>
+                            All of them as a back-end developer in Riga, Latvia,
+                            unless noted otherwise
+                        </p>
+                    </th>
+                    <th colspan="2">
+                        <h3>Personal projects</h3>
+                        <p>An urban-themed play in four acts</p>
+                    </th>
+                    <th colspan="2">
+                        <h3>Education</h3>
+                        <p>
+                            Made my first steps in IT at school and Progmeistars,
+                            self-taught afterward
+                        </p>
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td></td>
-                    <td>
-                        All of them as a back-end developer in Riga, Latvia,
-                        unless noted otherwise
-                    </td>
-                    <td colspan="2">
-                        An urban-themed play in four acts
-                    </td>
-                    <td colspan="2">
-                        Made my first steps in IT at school and Progmeistars,
-                        self-taught afterwards
-                    </td>
-                </tr>
                 <tr>
                     <td class="year">&nbsp;</td>
                     <td rowspan="2">
