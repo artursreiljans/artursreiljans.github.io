@@ -59,152 +59,129 @@
 				height: 100%;
 			}
 
+			html,
+			html > body > div > main {
+				background: #000000cc;
+			}
+
 			html > body > div {
 				display: grid;
 				height: auto;
 				min-height: 100%;
 				grid-template-areas: "main";
 				justify-items: center;
-			}
 
-			html > body > div > * {
-				grid-area: main;
-			}
+				> * {
+					grid-area: main;
+				}
 
-			html,
-			html > body > div > main {
-				background: #000000cc;
-			}
+				> main {
+					& {
+						min-height: 100%;
+						padding: var(--gap);
+						position: relative;
+						display: grid;
+						gap: var(--gap);
+					}
 
-			html > body > div > main {
-				min-height: 100%;
-				padding: var(--gap);
-				position: relative;
-				display: grid;
-				gap: var(--gap);
-			}
+					& {
+						grid-template-areas:
+							"x-none-0"
+							"photo"
+							"name-first"
+							"name-last"
+							"hashtags"
+							"projects"
+							"x-spacer"
+							"social"
+							"x-none-1"
+							;
+						grid-template-rows: 1fr repeat(7, auto) 1fr;
+						--align-left: center;
+						--align-right: center;
+					}
 
-			html > body > div > main {
-				grid-template-areas:
-					"x-none-0"
-					"photo"
-					"name-first"
-					"name-last"
-					"hashtags"
-					"projects"
-					"x-spacer"
-					"cv"
-					"email"
-					"phone"
-					"social"
-					"x-none-1"
-				;
-				grid-template-rows: 1fr repeat(9, auto) 1fr;
-				--align-left: center;
-				--align-right: center;
-			}
-
-			@media only screen and (min-width: 600px) {
-				html > body > div > main {
-					grid-template-areas:
+					@media only screen and (min-width: 600px) {
+						& {
+							grid-template-areas:
 						"x-none-0   x-none-0"
 						"x-none-1   photo"
 						"name-first name-last"
 						"hashtags   hashtags"
-						"cv         projects"
-						"email      projects"
-						"phone      projects"
 						"social     projects"
-						"x-none-2   projects"
 						"x-none-3   x-none-3"
-					;
-					grid-template-columns: 1fr 1fr;
-					grid-template-rows: 1fr repeat(7, auto) 1fr;
-					--align-left: right;
-					--align-right: left;
+						;
+							grid-template-columns: 1fr 1fr;
+							grid-template-rows: 1fr repeat(4, auto) 1fr;
+							--align-left: right;
+							--align-right: left;
+						}
+					}
+
+					> h1 {
+						display: contents;
+
+						> span {
+							&:nth-of-type(1) {
+								grid-area: name-first;
+								justify-self: var(--align-left);
+							}
+
+							&:nth-of-type(2) {
+								grid-area: name-last;
+								justify-self: var(--align-right);
+							}
+						}
+					}
+
+					> ul:nth-of-type(2) {
+						align-self: var(--align-right);
+						align-items: var(--align-right);
+						text-align: var(--align-right);
+					}
+
+					> ul:nth-of-type(3) {
+						align-self: var(--align-left);
+						align-items: var(--align-left);
+						text-align: var(--align-left);
+					}
+
+					> figure {
+						grid-area: photo;
+						justify-self: var(--align-right);
+					}
+
+					> ul:nth-of-type(1) {
+						grid-area: hashtags;
+					}
+
+					> ul:nth-of-type(2) {
+						grid-area: projects;
+					}
+
+					> ul:nth-of-type(3) {
+						grid-area: social;
+					}
+
+					> ul {
+						display: flex;
+						align-items: baseline;
+						gap: var(--gap);
+
+						&:nth-of-type(2),
+						&:nth-of-type(3) {
+							flex-direction: column;
+						}
+					}
+
+					> ul:nth-of-type(3) {
+						font-size: .75rem;
+					}
+
+					> figure {
+						font-size: 0;
+					}
 				}
-			}
-
-			html > body > div > main > h1 {
-				display: contents;
-			}
-
-			html > body > div > main > h1 > span:nth-of-type(1) {
-				grid-area: name-first;
-				justify-self: var(--align-left);
-			}
-
-			html > body > div > main > h1 > span:nth-of-type(2) {
-				grid-area: name-last;
-				justify-self: var(--align-right);
-			}
-
-			html > body > div > main > ul:nth-of-type(2) {
-				align-self: var(--align-right);
-				align-items: var(--align-right);
-				text-align: var(--align-right);
-			}
-
-			html > body > div > main > ul:nth-of-type(3),
-			html > body > div > main > address {
-				justify-self: var(--align-left);
-			}
-
-			html > body > div > main > ul:nth-of-type(3) {
-				justify-content: var(--align-left);
-			}
-
-			html > body > div > main > figure {
-				grid-area: photo;
-				justify-self: var(--align-right);
-			}
-
-			html > body > div > main > ul:nth-of-type(1) {
-				grid-area: hashtags;
-			}
-
-			html > body > div > main > ul:nth-of-type(2) {
-				grid-area: projects;
-			}
-
-			html > body > div > main > ul:nth-of-type(3) {
-				grid-area: social;
-			}
-
-			html > body > div > main > address:nth-of-type(1) {
-				grid-area: cv;
-			}
-
-			html > body > div > main > address:nth-of-type(2) {
-				grid-area: email;
-			}
-
-			html > body > div > main > address:nth-of-type(3) {
-				grid-area: phone;
-			}
-
-			html > body > div > main > ul {
-				display: flex;
-				align-items: baseline;
-				gap: var(--gap);
-			}
-
-			html > body > div > main > ul:nth-of-type(2) {
-				flex-direction: column;
-			}
-
-			html > body > div > main > ul:nth-of-type(3) {
-				flex-wrap: wrap;
-				max-width: 14em;
-			}
-
-			html > body > div > main > ul:nth-of-type(3),
-			html > body > div > main > address {
-				font-size: .75rem;
-			}
-
-			html > body > div > main > figure {
-				font-size: 0;
 			}
 
 			/** STYLE **/
@@ -220,95 +197,88 @@
 
 			html > body > div > main {
 				color: var(--color-text);
-			}
 
-			html > body > div > main a {
-				color: var(--color-text);
-				-webkit-transition: color .2s linear;
-				transition: color .2s linear;
-				text-decoration: underline 1px solid;
-				text-underline-offset: .3ex;
-			}
+				& a {
+					color: var(--color-text);
+					-webkit-transition: color .2s linear;
+					transition: color .2s linear;
+					text-decoration: underline 1px solid;
+					text-underline-offset: .3ex;
 
-			html > body > div > main a:hover {
-				color: var(--color-accent);
-			}
+					&:hover {
+						color: var(--color-accent);
+					}
+				}
 
-			html > body > div > main > ul > li > a > code {
-				font-family: monospace;
-			}
+				> h1,
+				> ul:nth-of-type(1) {
+					font-family: Georgia, 'Times New Roman';
+					font-weight: normal;
+					font-style: italic;
+				}
 
-			html > body > div > main > h1,
-			html > body > div > main > ul:nth-of-type(1) {
-				font-family: Georgia, 'Times New Roman';
-				font-weight: normal;
-				font-style: italic;
-			}
+				> ul:nth-of-type(1),
+				> article {
+					color: var(--color-accent);
+				}
 
-			html > body > div > main > h1 {
-				font-size: 3em;
-				text-shadow: #000 0 0 .1em;
-			}
+				> h1 {
+					font-size: 3em;
+					text-shadow: #000 0 0 .1em;
+				}
 
-			html > body > div > main > ul:nth-of-type(1),
-			html > body > div > main > article {
-				color: var(--color-accent);
-			}
+				> ul:nth-of-type(1) {
+					display: flex;
+					gap: .5em;
+					margin: 0 auto var(--space-vertical);
 
-			html > body > div > main > ul:nth-of-type(1) {
-				display: flex;
-				gap: .5em;
-				margin: 0 auto var(--space-vertical);
-			}
+					> li::before {
+						content: '#';
+					}
+				}
 
-			html > body > div > main > ul:nth-of-type(1) > li::before {
-				content: '#';
-			}
+				> figure > img {
+					width: 7rem;
+					height: 7rem;
+					border: 5px solid var(--color-accent);
+					border-radius: 50%;
+					-moz-border-radius: 50%;
+				}
 
-			html > body > div > main > figure > img {
-				width: 7rem;
-				height: 7rem;
-				border: 5px solid var(--color-accent);
-				border-radius: 50%;
-				-moz-border-radius: 50%;
-			}
+				> ul > li > a {
+					&[data-icon] {
+						position: relative;
 
-			html > body > div > main > address {
-				font-style: normal;
-			}
+						&::before {
+							content: attr(data-icon);
+							font-family: 'Noto Emoji';
+							display: inline-block;
+							vertical-align: baseline;
+							margin-right: .7ex;
+						}
+					}
 
-			html > body > div > main > address > a {
-				margin-left: .1em;
-			}
+					&[href^='tel:'] > span {
+						&:first-of-type {
+							&:before {
+								content: '('
+							}
 
-			html > body > div > main > address > a[href^='tel:'] > span:first-of-type::before {
-				content: '('
-			}
+							&:after {
+								content: ') '
+							}
+						}
 
-			html > body > div > main > address > a[href^='tel:'] > span:first-of-type::after {
-				content: ') '
-			}
-
-			html > body > div > main > address > a[href^='tel:'] > span:not(:first-of-type):not(:last-of-type)::after {
-				content: '-'
-			}
-
-			html > body > div > main > address > a[data-icon] {
-				position: relative;
-			}
-
-			html > body > div > main > address > a[data-icon]::before {
-				content: attr(data-icon);
-				font-family: 'Noto Emoji';
-				display: inline-block;
-				vertical-align: baseline;
-				margin-right: 1ex;
+						&:not(:first-of-type):not(:last-of-type)::after {
+							content: '-'
+						}
+					}
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<div>
-
 			<aside id="map"></aside>
 
 			<main class='h-card vcard'>
@@ -332,23 +302,22 @@
 					<li><a tabindex="1" class="u-url url" href='https://letters.ernt.lv'>Letters &amp; ligatures</a></li>
 				</ul>
 
-				<address>
-					<a tabindex="1" href='/cv/' class="u-url url" data-icon="💻">CV</a>
-				</address>
-
-				<address>
-					<a tabindex="1" href='mailto:ernt@ernt.lv' class="u-email email" data-icon="📯">ernt@ernt.lv</a>
-				</address>
-
-				<address>
-					<a tabindex="1" href='tel:+37129690196' class='p-tel tel' data-icon="📞"><span>+371</span><span>2</span><span>96</span><span>901</span><span>96</span></a>
-				</address>
-
 				<ul>
-					<li><a tabindex="1" class="u-url url" rel="me" href='https://twitter.com/artursreiljans'>Twitter</a></li>
-					<li><a tabindex="1" class="u-url url" rel="me" href='https://www.instagram.com/artursreiljans/'>Inﬆagram</a></li>
-					<li><a tabindex="1" class="u-url url" rel="me" href='https://www.facebook.com/arturs.reiljans'>Facebook</a></li>
-					<li><a tabindex="1" class="u-url url" rel="me" href='https://www.last.fm/user/ernt'>Laﬆ.fm</a></li>
+					<li>
+						<a tabindex="1" href='/cv/' class="u-url url" data-icon="💻">CV</a>
+					</li>
+					<li>
+						<a tabindex="1" href='mailto:ernt@ernt.lv' class="u-email email" data-icon="📯">ernt@ernt.lv</a>
+					</li>
+					<li>
+						<a tabindex="1" href='tel:+37129690196' class='p-tel tel' data-icon="📞"><span>+371</span><span>2</span><span>96</span><span>901</span><span>96</span></a>
+					</li>
+					<li>
+						<a tabindex="1" class="u-url url" rel="me" href='https://www.instagram.com/artursreiljans/' data-icon="🎨">Inﬆagram</a>
+					</li>
+					<li>
+						<a tabindex="1" class="u-url url" rel="me" href='https://www.last.fm/user/ernt' data-icon="🎧">Laﬆ.fm</a>
+					</li>
 				</ul>
 			</main>
 		</div>
