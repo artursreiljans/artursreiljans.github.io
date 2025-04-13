@@ -1,91 +1,98 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-		<meta name="google-site-verification" content="cQkyG066sxz8_lbhfaNH1WZBkXWL3dngcLKEQUvhRkU">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="#333333">
-		<link rel="icon" type="image/jpeg" href="https://s.gravatar.com/avatar/22b70d8a63dc2f99efea6b4b4c62488a?s=32">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap" rel="stylesheet">
-		<title>Artūrs Reiljans</title>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="google-site-verification" content="cQkyG066sxz8_lbhfaNH1WZBkXWL3dngcLKEQUvhRkU">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#333333">
+	<link rel="icon" type="image/jpeg" href="https://s.gravatar.com/avatar/22b70d8a63dc2f99efea6b4b4c62488a?s=32">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!--		<link href="https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap" rel="stylesheet">-->
+	<title>Artūrs Reiljans</title>
 
-		<style>
+	<style>
 
-			/** RESET **/
+		/** RESET **/
 
-			html,
-			html > body,
-			html > body > div > main > figure,
-			html > body > div > main > h1 {
-				margin: 0;
-				padding: 0;
-				clear: both;
+		html,
+		html > body,
+		html > body > div > main > figure,
+		html > body > div > main > h1 {
+			margin: 0;
+			padding: 0;
+			clear: both;
+		}
+
+		html > body > div > main > ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		/** FONTS **/
+
+		@font-face {
+			font-family: "Noto Emoji";
+			src: url("assets/fonts/NotoEmoji-Regular.ttf");
+		}
+
+		/** LAYOUT **/
+
+		* {
+			box-sizing: border-box;
+			font-size: 1em;
+			line-height: 1;
+		}
+
+		html {
+			font-size: max(22px, 1.7vw);
+		}
+
+		:root {
+			--color-text: #ffffff;
+			--color-accent: #9abe5d;
+			--space-horizontal: .9rem;
+			--space-vertical: .6rem;
+			--gap: var(--space-vertical) var(--space-horizontal);
+		}
+
+		html,
+		html > body,
+		html > body > div,
+		html > body > div > main,
+		html > body > div > aside {
+			width: 100%;
+			height: 100%;
+		}
+
+		html,
+		html > body > div > main {
+			background: #000000cc;
+		}
+
+		html > body > div {
+			display: grid;
+			height: auto;
+			min-height: 100%;
+			grid-template-areas: "main";
+			justify-items: center;
+
+			> * {
+				grid-area: main;
 			}
 
-			html > body > div > main > ul {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-			}
-
-			/** LAYOUT **/
-
-			* {
-				box-sizing: border-box;
-				font-size: 1em;
-				line-height: 1;
-			}
-
-			html {
-				font-size: max(22px, 1.7vw);
-			}
-
-			:root {
-				--color-text: #ffffff;
-				--color-accent: #9abe5d;
-				--space-horizontal: .9rem;
-				--space-vertical: .6rem;
-				--gap: var(--space-vertical) var(--space-horizontal);
-			}
-
-			html,
-			html > body,
-			html > body > div,
-			html > body > div > main,
-			html > body > div > aside {
-				width: 100%;
-				height: 100%;
-			}
-
-			html,
-			html > body > div > main {
-				background: #000000cc;
-			}
-
-			html > body > div {
-				display: grid;
-				height: auto;
-				min-height: 100%;
-				grid-template-areas: "main";
-				justify-items: center;
-
-				> * {
-					grid-area: main;
+			> main {
+				& {
+					min-height: 100%;
+					padding: var(--gap);
+					position: relative;
+					display: grid;
+					gap: var(--gap);
 				}
 
-				> main {
-					& {
-						min-height: 100%;
-						padding: var(--gap);
-						position: relative;
-						display: grid;
-						gap: var(--gap);
-					}
-
-					& {
-						grid-template-areas:
+				& {
+					grid-template-areas:
 							"x-none-0"
 							"photo"
 							"name-first"
@@ -95,265 +102,265 @@
 							"x-spacer"
 							"social"
 							"x-none-1"
-							;
-						grid-template-rows: 1fr repeat(7, auto) 1fr;
-						--align-left: center;
-						--align-right: center;
-					}
+				;
+					grid-template-rows: 1fr repeat(7, auto) 1fr;
+					--align-left: center;
+					--align-right: center;
+				}
 
-					@media only screen and (min-width: 600px) {
-						& {
-							grid-template-areas:
+				@media only screen and (min-width: 600px) {
+					& {
+						grid-template-areas:
 						"x-none-0   x-none-0"
 						"x-none-1   photo"
 						"name-first name-last"
 						"hashtags   hashtags"
 						"social     projects"
 						"x-none-3   x-none-3"
-						;
-							grid-template-columns: 1fr 1fr;
-							grid-template-rows: 1fr repeat(4, auto) 1fr;
-							--align-left: right;
-							--align-right: left;
-						}
+					;
+						grid-template-columns: 1fr 1fr;
+						grid-template-rows: 1fr repeat(4, auto) 1fr;
+						--align-left: right;
+						--align-right: left;
 					}
-
-					> h1 {
-						display: contents;
-
-						> span {
-							&:nth-of-type(1) {
-								grid-area: name-first;
-								justify-self: var(--align-left);
-							}
-
-							&:nth-of-type(2) {
-								grid-area: name-last;
-								justify-self: var(--align-right);
-							}
-						}
-					}
-
-					> ul:nth-of-type(2) {
-						align-self: var(--align-right);
-						align-items: var(--align-right);
-						text-align: var(--align-right);
-					}
-
-					> ul:nth-of-type(3) {
-						align-self: var(--align-left);
-						align-items: var(--align-left);
-						text-align: var(--align-left);
-					}
-
-					> figure {
-						grid-area: photo;
-						justify-self: var(--align-right);
-					}
-
-					> ul:nth-of-type(1) {
-						grid-area: hashtags;
-					}
-
-					> ul:nth-of-type(2) {
-						grid-area: projects;
-					}
-
-					> ul:nth-of-type(3) {
-						grid-area: social;
-					}
-
-					> ul {
-						display: flex;
-						align-items: baseline;
-						gap: var(--gap);
-
-						&:nth-of-type(2),
-						&:nth-of-type(3) {
-							flex-direction: column;
-						}
-					}
-
-					> ul:nth-of-type(3) {
-						font-size: .75rem;
-					}
-
-					> figure {
-						font-size: 0;
-					}
-				}
-			}
-
-			/** STYLE **/
-
-			html {
-				font-family: sans-serif;
-			}
-
-			:focus {
-				outline: .2em inset rgba(80, 80, 80, .5);
-				outline-offset: .2em;
-			}
-
-			html > body > div > main {
-				color: var(--color-text);
-
-				& a {
-					color: var(--color-text);
-					-webkit-transition: color .2s linear;
-					transition: color .2s linear;
-					text-decoration: underline 1px solid;
-					text-underline-offset: .3ex;
-
-					&:hover {
-						color: var(--color-accent);
-					}
-				}
-
-				> h1,
-				> ul:nth-of-type(1) {
-					font-family: Georgia, 'Times New Roman';
-					font-weight: normal;
-					font-style: italic;
-				}
-
-				> ul:nth-of-type(1),
-				> article {
-					color: var(--color-accent);
 				}
 
 				> h1 {
-					font-size: 3em;
-					text-shadow: #000 0 0 .1em;
+					display: contents;
+
+					> span {
+						&:nth-of-type(1) {
+							grid-area: name-first;
+							justify-self: var(--align-left);
+						}
+
+						&:nth-of-type(2) {
+							grid-area: name-last;
+							justify-self: var(--align-right);
+						}
+					}
+				}
+
+				> ul:nth-of-type(2) {
+					align-self: var(--align-right);
+					align-items: var(--align-right);
+					text-align: var(--align-right);
+				}
+
+				> ul:nth-of-type(3) {
+					align-self: var(--align-left);
+					align-items: var(--align-left);
+					text-align: var(--align-left);
+				}
+
+				> figure {
+					grid-area: photo;
+					justify-self: var(--align-right);
 				}
 
 				> ul:nth-of-type(1) {
+					grid-area: hashtags;
+				}
+
+				> ul:nth-of-type(2) {
+					grid-area: projects;
+				}
+
+				> ul:nth-of-type(3) {
+					grid-area: social;
+				}
+
+				> ul {
 					display: flex;
-					gap: .5em;
-					margin: 0 auto var(--space-vertical);
+					align-items: baseline;
+					gap: var(--gap);
 
-					> li::before {
-						content: '#';
+					&:nth-of-type(2),
+					&:nth-of-type(3) {
+						flex-direction: column;
 					}
 				}
 
-				> figure > img {
-					width: 7rem;
-					height: 7rem;
-					border: 5px solid var(--color-accent);
-					border-radius: 50%;
-					-moz-border-radius: 50%;
+				> ul:nth-of-type(3) {
+					font-size: .75rem;
 				}
 
-				> ul > li > a {
-					&[data-icon] {
-						position: relative;
+				> figure {
+					font-size: 0;
+				}
+			}
+		}
 
-						&::before {
-							content: attr(data-icon);
-							font-family: 'Noto Emoji';
-							display: inline-block;
-							vertical-align: baseline;
-							margin-right: .7ex;
+		/** STYLE **/
+
+		html {
+			font-family: sans-serif;
+		}
+
+		:focus {
+			outline: .2em inset rgba(80, 80, 80, .5);
+			outline-offset: .2em;
+		}
+
+		html > body > div > main {
+			color: var(--color-text);
+
+			& a {
+				color: var(--color-text);
+				-webkit-transition: color .2s linear;
+				transition: color .2s linear;
+				text-decoration: underline 1px solid;
+				text-underline-offset: .3ex;
+
+				&:hover {
+					color: var(--color-accent);
+				}
+			}
+
+			> h1,
+			> ul:nth-of-type(1) {
+				font-family: Georgia, 'Times New Roman';
+				font-weight: normal;
+				font-style: italic;
+			}
+
+			> ul:nth-of-type(1),
+			> article {
+				color: var(--color-accent);
+			}
+
+			> h1 {
+				font-size: 3em;
+				text-shadow: #000 0 0 .1em;
+			}
+
+			> ul:nth-of-type(1) {
+				display: flex;
+				gap: .5em;
+				margin: 0 auto var(--space-vertical);
+
+				> li::before {
+					content: '#';
+				}
+			}
+
+			> figure > img {
+				width: 7rem;
+				height: 7rem;
+				border: 5px solid var(--color-accent);
+				border-radius: 50%;
+				-moz-border-radius: 50%;
+			}
+
+			> ul > li > a {
+				&[data-icon] {
+					position: relative;
+
+					&::before {
+						content: attr(data-icon);
+						font-family: 'Noto Emoji';
+						display: inline-block;
+						vertical-align: baseline;
+						margin-right: .7ex;
+					}
+				}
+
+				&[href^='tel:'] > span {
+					&:first-of-type {
+						&:before {
+							content: '('
+						}
+
+						&:after {
+							content: ') '
 						}
 					}
 
-					&[href^='tel:'] > span {
-						&:first-of-type {
-							&:before {
-								content: '('
-							}
-
-							&:after {
-								content: ') '
-							}
-						}
-
-						&:not(:first-of-type):not(:last-of-type)::after {
-							content: '-'
-						}
+					&:not(:first-of-type):not(:last-of-type)::after {
+						content: '-'
 					}
 				}
 			}
-		</style>
-	</head>
-	<body>
-		<div>
-			<aside id="map"></aside>
+		}
+	</style>
+</head>
+<body>
+<div>
+	<aside id="map"></aside>
 
-			<main class='h-card vcard'>
-				<figure>
-					<img src="https://s.gravatar.com/avatar/22b70d8a63dc2f99efea6b4b4c62488a?s=200" alt="Artūrs Reiljans" title="Artūrs Reiljans" class="u-photo photo" />
-				</figure>
+	<main class='h-card vcard'>
+		<figure>
+			<img src="https://s.gravatar.com/avatar/22b70d8a63dc2f99efea6b4b4c62488a?s=200" alt="Artūrs Reiljans" title="Artūrs Reiljans" class="u-photo photo" />
+		</figure>
 
-				<h1 class='p-name fn'>
-					<span class="p-given-name given-name">Artūrs</span>
-					<span class="p-family-name family-name">Reiljans</span>
-				</h1>
+		<h1 class='p-name fn'>
+			<span class="p-given-name given-name">Artūrs</span>
+			<span class="p-family-name family-name">Reiljans</span>
+		</h1>
 
-				<ul>
-					<li>webdevelopment</li>
-					<li>cities</li>
-				</ul>
+		<ul>
+			<li>webdevelopment</li>
+			<li>cities</li>
+		</ul>
 
-				<ul>
-					<li><a tabindex="1" class="u-url url" href='https://zurbu.app'>Zurbu</a></li>
-					<li><a tabindex="1" class="u-url url" href='https://1201.lv'>1201</a></li>
-					<li><a tabindex="1" class="u-url url" href='https://letters.ernt.lv'>Letters &amp; ligatures</a></li>
-				</ul>
+		<ul>
+			<li><a tabindex="1" class="u-url url" href='https://zurbu.app'>Zurbu</a></li>
+			<li><a tabindex="1" class="u-url url" href='https://1201.lv'>1201</a></li>
+			<li><a tabindex="1" class="u-url url" href='https://letters.ernt.lv'>Letters &amp; ligatures</a></li>
+		</ul>
 
-				<ul>
-					<li>
-						<a tabindex="1" href='/cv/' class="u-url url" data-icon="💻">CV</a>
-					</li>
-					<li>
-						<a tabindex="1" href='mailto:ernt@ernt.lv' class="u-email email" data-icon="📯">ernt@ernt.lv</a>
-					</li>
-					<li>
-						<a tabindex="1" href='tel:+37129690196' class='p-tel tel' data-icon="📞"><span>+371</span><span>2</span><span>96</span><span>901</span><span>96</span></a>
-					</li>
-					<li>
-						<a tabindex="1" class="u-url url" rel="me" href='https://www.instagram.com/artursreiljans/' data-icon="🎨">Inﬆagram</a>
-					</li>
-					<li>
-						<a tabindex="1" class="u-url url" rel="me" href='https://www.last.fm/user/ernt' data-icon="🎧">Laﬆ.fm</a>
-					</li>
-				</ul>
-			</main>
-		</div>
+		<ul>
+			<li>
+				<a tabindex="1" href='/cv/' class="u-url url" data-icon="💻">CV</a>
+			</li>
+			<li>
+				<a tabindex="1" href='mailto:ernt@ernt.lv' class="u-email email" data-icon="📯">ernt@ernt.lv</a>
+			</li>
+			<li>
+				<a tabindex="1" href='tel:+37129690196' class='p-tel tel' data-icon="📞"><span>+371</span><span>2</span><span>96</span><span>901</span><span>96</span></a>
+			</li>
+			<li>
+				<a tabindex="1" class="u-url url" rel="me" href='https://www.instagram.com/artursreiljans/' data-icon="🎨">Inﬆagram</a>
+			</li>
+			<li>
+				<a tabindex="1" class="u-url url" rel="me" href='https://www.last.fm/user/ernt' data-icon="🎧">Laﬆ.fm</a>
+			</li>
+		</ul>
+	</main>
+</div>
 
-		<script src="//maps.google.com/maps/api/js?sensor=false&key=AIzaSyCjZBhP6ePrhwYcrFLK17nQdB0RTxgrtMg" type="text/javascript"></script>
-		<script type='text/javascript'>
-			function showMap(coords) {
-				var current = coords[Math.floor(Math.random() * (coords.length))];
-				new google.maps.Map(document.getElementById("map"), {
-					'zoom': current[2],
-					'center': new google.maps.LatLng(current[0], current[1]),
-					'mapTypeId': google.maps.MapTypeId.SATELLITE,
-					'disableDefaultUI': true
-				});
-			}
-			window.onload = function() {
-				showMap([
-					[67.652599, -133.092499, 10],
-					[-23.806549, 133.96059, 13],
-					[68.169002, -134.425964, 10],
-					[69.529715, -132.109222, 10],
-					[80.231047, -22.730713, 7],
-					[35.108675, -117.961578, 12]
-				]);
-			};
-		</script>
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-8263337-6']);
-			_gaq.push(['_setDomainName', '.ernt.lv']);
-			_gaq.push(['_trackPageview']);
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-		</script>
-	</body>
+<script src="//maps.google.com/maps/api/js?sensor=false&key=AIzaSyCjZBhP6ePrhwYcrFLK17nQdB0RTxgrtMg" type="text/javascript"></script>
+<script type='text/javascript'>
+	function showMap(coords) {
+		var current = coords[Math.floor(Math.random() * (coords.length))];
+		new google.maps.Map(document.getElementById("map"), {
+			'zoom': current[2],
+			'center': new google.maps.LatLng(current[0], current[1]),
+			'mapTypeId': google.maps.MapTypeId.SATELLITE,
+			'disableDefaultUI': true
+		});
+	}
+	window.onload = function() {
+		showMap([
+			[67.652599, -133.092499, 10],
+			[-23.806549, 133.96059, 13],
+			[68.169002, -134.425964, 10],
+			[69.529715, -132.109222, 10],
+			[80.231047, -22.730713, 7],
+			[35.108675, -117.961578, 12]
+		]);
+	};
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-8263337-6']);
+	_gaq.push(['_setDomainName', '.ernt.lv']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</body>
 </html>
